@@ -6,7 +6,7 @@ import type { Plugin } from 'vite';
 import { PERSON, STORY, APPS, WORK, ALL_SITES, TOOLKIT, TESTIMONIALS, ABOUT, STATS, DIVISIONS } from './src/content';
 import { writePages, PAGE_PATHS, PRODUCTS, SLUG } from './pages';
 
-const SITE = 'https://piyushassudani.in';
+const SITE = 'https://www.piyushassudani.in';
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const today = new Date().toISOString().slice(0, 10);
 const abs = (p: string) => `${SITE}${p}`;

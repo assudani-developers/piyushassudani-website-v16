@@ -189,8 +189,8 @@ export class World {
 
     this.c = this.first ? this.target.c : damp(this.c, this.target.c, 4.5, dt);
     for (let i = 0; i <= last; i++) this.u[i] = this.first ? this.target.u[i] : damp(this.u[i], this.target.u[i], 5, dt);
-    this.mouseS.x = damp(this.mouseS.x, isMobile ? 0 : this.mouse.x, 2.5, dt);
-    this.mouseS.y = damp(this.mouseS.y, isMobile ? 0 : this.mouse.y, 2.5, dt);
+    this.mouseS.x = damp(this.mouseS.x, this.mouse.x, 2.5, dt);
+    this.mouseS.y = damp(this.mouseS.y, this.mouse.y, 2.5, dt);
 
     const c = clamp(this.c, 0, last);
     const i0 = Math.floor(c);

@@ -650,3 +650,71 @@ picture { display: contents; }
 .foot { flex-direction: column; align-items: center; text-align: center; gap: 12px; }
 .foot nav { flex-wrap: wrap; justify-content: center; gap: 6px 18px; }
 .foot .credit a { color: var(--accent); }
+
+/* ================= mobile-only premium layer ================= */
+.dock { display: none; }
+.is-mobile .hud-bottom { display: none; }
+.is-mobile .dock {
+  position: fixed; left: 50%; bottom: max(14px, env(safe-area-inset-bottom)); z-index: 55; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 10px; padding: 6px 16px 6px 6px; border-radius: 999px;
+  background: var(--panel-strong); border: 1px solid var(--faint); box-shadow: var(--shadow-sm);
+  opacity: 0; transition: opacity 0.6s var(--ease);
+}
+.is-mobile.ready .dock { opacity: 1; }
+.menu-open .dock { opacity: 0 !important; pointer-events: none; }
+.dock-ring { --p: 0; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
+  background: conic-gradient(var(--accent) calc(var(--p) * 360deg), var(--faint) 0); }
+.dock-no { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--panel-strong); font-size: 11px; color: var(--accent); }
+.dock { --p: 0; }
+.dock .dock-ring { --p: inherit; }
+.dock-title { font-family: var(--serif); font-size: 16px; }
+.dock-hint { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); padding-left: 10px; border-left: 1px solid var(--faint); }
+
+/* giant outlined chapter numerals behind each mobile chapter */
+.is-mobile .ch[data-no]:not(.hero)::after {
+  content: attr(data-no); position: absolute; right: -8px; top: 44px; z-index: -1; pointer-events: none;
+  font-family: var(--serif); font-size: 168px; line-height: 1; letter-spacing: -0.04em;
+  color: transparent; -webkit-text-stroke: 1px var(--faint); opacity: 0.9;
+}
+
+/* story deck */
+.deck { margin-top: 26px; perspective: 1200px; }
+.deck-card { --cover: 0; position: sticky; top: calc(78px + var(--i) * 10px); margin-bottom: 22px; padding: 12px 12px 18px; border-radius: 24px;
+  background: var(--panel-strong); border: 1px solid var(--line); box-shadow: 0 -10px 40px -20px rgba(0, 0, 0, 0.35), var(--shadow-sm);
+  transform-origin: 50% 0; will-change: transform; overflow: hidden; }
+.deck-card::after { content: ''; position: absolute; inset: 0; background: rgb(var(--bg-rgb)); opacity: calc(var(--cover) * 0.5); pointer-events: none; border-radius: inherit; }
+.deck-card .frame { width: 100%; height: 34vh; aspect-ratio: auto; padding: 0; background: none; box-shadow: none; transform: none !important; border-radius: 16px; overflow: hidden; }
+.deck-card .frame img { border-radius: 16px; }
+.deck-card .frame figcaption { left: 12px; right: auto; bottom: 10px; padding: 3px 10px; border-radius: 999px; background: rgba(0, 0, 0, 0.45); color: #fff; font-size: 12px; }
+.deck-card .figure { width: 100%; height: 34vh; aspect-ratio: auto; border-radius: 16px; padding: 20px; box-shadow: none;
+  background: radial-gradient(90% 90% at 50% 30%, var(--accent-soft), transparent 70%), var(--panel); }
+.deck-card .figure b { font-size: 84px; }
+.deck-card .beat-body { padding: 16px 6px 0; }
+.deck-card h3 { font-family: var(--serif); font-weight: 400; font-size: 25px; line-height: 1.15; margin: 8px 0 6px; }
+.deck-card p { font-size: 14.5px; color: var(--dim); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.more-btn { margin-top: 12px; font-weight: 700; font-size: 14px; color: var(--accent); }
+.beat-hero { padding: 0; overflow: hidden; }
+.beat-hero .frame { width: 100%; height: 46vh; aspect-ratio: auto; padding: 0; box-shadow: none; transform: none !important; }
+.beat-hero .figure { width: 100%; aspect-ratio: auto; height: 34vh; border-radius: 0; border: 0; box-shadow: none; }
+.beat-full h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.15; margin: 8px 0 10px; }
+.beat-full p { font-size: 15.5px; color: var(--dim); margin-top: 12px; }
+
+/* reviews: 3D rail */
+.qrail { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 26px calc(50vw - 39vw) 34px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.qrail::-webkit-scrollbar { display: none; }
+.qrail .quote { flex: none; width: 78vw; scroll-snap-align: center; min-height: 220px; will-change: transform; }
+
+/* richer mobile hero: name larger, staggered reveal */
+.is-mobile .hero-name { font-size: clamp(64px, 21vw, 100px); }
+.is-mobile .hero-name .ln + .ln .rv { transition-delay: 180ms; }
+.is-mobile .card, .is-mobile .kit-col { backdrop-filter: none; }
+.is-mobile .dock { white-space: nowrap; height: 48px; }
+.dock-title { line-height: 1; }
+.share-row { justify-content: center; margin-top: 22px; }
+.share-link { font-weight: 700; color: var(--accent); }
+
+/* never let a 3D stage widen the page (clip keeps position: sticky working, unlike hidden) */
+html, body { overflow-x: clip; max-width: 100%; }
+.ch { overflow-x: clip; }
+.cf-stage, .arc-stage, .hq, .orbit, .stack { contain: layout paint; }
+.is-mobile .cf-stage { margin-left: 0; margin-right: 0; }

@@ -105,14 +105,14 @@ No guide and no shortcuts. Just one more thing figured out every day.
 - "Best tech solutions in Balotra! Fast, reliable, and professional." — Aman D. (4/5)
 
 ## Pages
-- https://piyushassudani.in/about/
-- https://piyushassudani.in/work/
-- https://piyushassudani.in/apps/
-- https://piyushassudani.in/apps/atteni/
-- https://piyushassudani.in/apps/pypocket/
-- https://piyushassudani.in/apps/perfect-bandhan/
-- https://piyushassudani.in/contact/
+- https://www.piyushassudani.in/about/
+- https://www.piyushassudani.in/work/
+- https://www.piyushassudani.in/apps/
+- https://www.piyushassudani.in/apps/atteni/
+- https://www.piyushassudani.in/apps/pypocket/
+- https://www.piyushassudani.in/apps/perfect-bandhan/
+- https://www.piyushassudani.in/contact/
 
 ## Optional
-- [Privacy policy](https://piyushassudani.in/privacy.html)
-- [Terms of use](https://piyushassudani.in/terms.html)
+- [Privacy policy](https://www.piyushassudani.in/privacy.html)
+- [Terms of use](https://www.piyushassudani.in/terms.html)

@@ -15,7 +15,7 @@ const firstSentences = (s: string, n = 2) => s.split(/(?<=\.)\s+/).slice(0, n).j
 const label = (i: number) =>
   `<p class="ch-label rv"><span class="no">${CHAPTERS[i].no}</span><span>${CHAPTERS[i].title}</span><span class="hi">${CHAPTERS[i].hi}</span></p>`;
 const sec = (i: number, cls: string, inner: string) =>
-  `<section class="ch ${cls}" id="${CHAPTERS[i].id}" data-i="${i}">${inner}</section>`;
+  `<section class="ch ${cls}" id="${CHAPTERS[i].id}" data-i="${i}" data-no="${CHAPTERS[i].no}">${inner}</section>`;
 
 export const CAT_COLORS = ['#34c77b', '#4f7cff', '#f2a93b', '#e0567a'];
 
@@ -109,7 +109,7 @@ export function renderStory() {
       <div class="wrap">
         ${label(1)}
         <h2 class="ch-title rv">The story <em>so far.</em></h2>
-        <div class="beats-m">${STORY.map((_, i) => `<article class="beat-m rv">${storyVisual(i)}<div class="beat-body">${storyBeat(i)}</div></article>`).join('')}</div>
+        <div class="deck">${STORY.map((b, i) => `<article class="deck-card" style="--i:${i}">${storyVisual(i)}<div class="beat-body"><span class="beat-k">${pad(i + 1)} / ${pad(STORY.length)} · ${esc(b.kicker)}</span><h3>${esc(b.title)}</h3><p>${esc(b.body[0])}</p><button class="more-btn" data-beat-open="${i}">Read the full chapter →</button></div></article>`).join('')}</div>
       </div>`)
     : sec(1, 'story d', `
       <div class="pin">
@@ -241,7 +241,7 @@ export function renderStory() {
       </div>
     </div>
     ${isMobile
-      ? `<div class="wrap"><div class="quotes-m rv">${TESTIMONIALS.map(quote).join('')}</div></div>`
+      ? `<div class="qrail">${TESTIMONIALS.map(quote).join('')}</div>`
       : `<div class="marquee rv"><div class="track">${rowA}${rowA}</div></div><div class="marquee rev rv"><div class="track">${rowB}${rowB}</div></div>`}
   `));
 
@@ -280,6 +280,7 @@ export function renderStory() {
         <a href="mailto:${PERSON.email}">${PERSON.email}</a>
         <a href="${PERSON.whatsapp}" target="_blank" rel="noopener">${PERSON.phone}</a>
       </div>
+      <div class="row rv share-row"><button class="btn solid" data-share>Share this portfolio${ARR}</button></div>
       <div class="socials rv">${PERSON.socials.map((x) => ext(x.url, x.label, 'soc')).join('')}</div>
     </div>
     <footer class="foot">
@@ -306,6 +307,10 @@ export function appSheet(a: AppItem) {
     ${a.points.length ? `<ul class="sh-points">${a.points.map((p) => `<li>${esc(p)}</li>`).join('')}</ul>` : ''}
     ${gallery}
     ${a.links.length ? `<div class="row">${a.links.map((l, i) => ext(l.url, l.label, i === 0 ? 'btn solid' : 'btn')).join('')}<a class="btn" href="/apps/${a.id === 'bandhan' ? 'perfect-bandhan' : a.id}/">Product page${ARR}</a></div>` : ''}`;
+}
+
+export function beatSheet(i: number) {
+  return `<div class="sh-hero beat-hero">${storyVisual(i)}</div><div class="beat-full">${storyBeat(i)}</div>`;
 }
 
 export function workSheet(w: Work) {
@@ -353,10 +358,11 @@ export function renderChrome() {
     <div class="menu-inner">
       <p class="menu-head">Chapters</p>
       <ol>${CHAPTERS.map((c, i) => `<li style="--i:${i}"><button data-goto="${i}"><span class="no">${c.no}</span>${c.title}<span class="hi">${c.hi}</span></button></li>`).join('')}</ol>
-      <div class="menu-foot"><a href="mailto:${PERSON.email}">${PERSON.email}</a><span>${PERSON.location}</span></div>
+      <div class="menu-foot"><button class="share-link" data-share>Share this site ↗</button><a href="mailto:${PERSON.email}">${PERSON.email}</a><span>${PERSON.location}</span></div>
     </div>
   </nav>
   <div class="hud-bottom"><div class="progress"><i></i></div></div>
+  ${isMobile ? '<button class="dock" aria-label="Chapters"><span class="dock-ring"><b class="dock-no">00</b></span><span class="dock-title">Home</span><span class="dock-hint">Chapters</span></button>' : ''}
   <div class="sites overlay" aria-hidden="true">
     <div class="sites-inner">
       <button class="x" data-close aria-label="Close">×</button>

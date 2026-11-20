@@ -24,4 +24,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://piyushassudani.in/sitemap.xml
+Sitemap: https://www.piyushassudani.in/sitemap.xml

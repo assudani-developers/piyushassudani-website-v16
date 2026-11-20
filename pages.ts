@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { PERSON, STORY, APPS, WORK, ALL_SITES, TESTIMONIALS, ABOUT, STATS, type AppItem } from './src/content';
 
-export const SITE = 'https://piyushassudani.in';
+export const SITE = 'https://www.piyushassudani.in';
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const jpg = (p: string) => p.replace(/\.webp$/, '.jpg');
 export const SLUG: Record<string, string> = { atteni: 'atteni', pypocket: 'pypocket', bandhan: 'perfect-bandhan' };

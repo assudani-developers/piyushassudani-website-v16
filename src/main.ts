@@ -3,7 +3,7 @@ import Lenis from 'lenis';
 import gsap from 'gsap';
 import { isMobile, reducedMotion, watchModeChange } from './device';
 import { loadAll } from './assets';
-import { renderChrome, renderStory, appSheet, workSheet, SKY_ICONS } from './ui/render';
+import { renderChrome, renderStory, appSheet, workSheet, beatSheet, SKY_ICONS } from './ui/render';
 import { APPS, CHAPTERS, PERSON, STORY, WORK } from './content';
 import { applyTheme } from './theme';
 import { daylightAt, PRESETS, PHASE_LABEL, GREETING, clockLabel, type Phase } from './daylight';
@@ -233,9 +233,82 @@ const cursor = isMobile ? null : $('.cursor');
 const cur = { x: innerWidth / 2, y: innerHeight / 2, rx: innerWidth / 2, ry: innerHeight / 2 };
 window.addEventListener('pointermove', (e) => {
   cur.x = e.clientX; cur.y = e.clientY;
-  world?.setPointer(e.clientX, e.clientY);
+  if (!isMobile) world?.setPointer(e.clientX, e.clientY);
   if (cursor) cursor.classList.toggle('hover', !!(e.target as Element).closest?.('a, button, input, label'));
 }, { passive: true });
+
+/* ======================= share ======================= */
+// Sends a proper card (title, line, link preview with the OG image) instead of a bare URL.
+const SHARE = {
+  title: 'Piyush Assudani — Full-Stack Developer from Balotra',
+  text: 'Meet Piyush Assudani: self-taught full-stack developer from Balotra, Rajasthan. 50+ websites live, 5+ products of his own, and the story of how it started with ₹500.',
+  url: 'https://www.piyushassudani.in/',
+};
+document.querySelectorAll<HTMLElement>('[data-share]').forEach((b) => b.addEventListener('click', async () => {
+  closeMenu();
+  if (navigator.share) {
+    // share the preview image itself along with the text and link, where the phone supports files
+    try {
+      const blob = await fetch('/og-image.jpg').then((r) => r.blob());
+      const file = new File([blob], 'piyush-assudani.jpg', { type: 'image/jpeg' });
+      const withImage = { ...SHARE, text: `${SHARE.text}\n${SHARE.url}`, files: [file] };
+      if (navigator.canShare?.(withImage)) { await navigator.share(withImage); return; }
+    } catch (err) { if ((err as Error).name === 'AbortError') return; }
+    try { await navigator.share(SHARE); } catch { /* cancelled */ }
+    return;
+  }
+  try { await navigator.clipboard.writeText(`${SHARE.text}\n${SHARE.url}`); b.textContent = 'Copied ✓'; }
+  catch { window.open(`https://wa.me/?text=${encodeURIComponent(`${SHARE.text}\n${SHARE.url}`)}`, '_blank', 'noopener'); }
+}));
+
+/* ======================= mobile extras ======================= */
+
+// story deck: cards stick and stack; the one underneath sinks back as the next slides over it
+const deckCards = isMobile ? Array.from(document.querySelectorAll<HTMLElement>('.deck-card')) : [];
+function syncDeck() {
+  if (!deckCards.length) return;
+  const first = deckCards[0].getBoundingClientRect();
+  if (first.top > vh || deckCards[deckCards.length - 1].getBoundingClientRect().bottom < 0) return;
+  for (let i = 0; i < deckCards.length - 1; i++) {
+    const a = deckCards[i].getBoundingClientRect(), b = deckCards[i + 1].getBoundingClientRect();
+    const cover = clamp(1 - (b.top - a.top) / Math.max(1, a.height));
+    deckCards[i].style.transform = `scale(${(1 - cover * 0.07).toFixed(4)}) rotateX(${(cover * 6).toFixed(2)}deg)`;
+    deckCards[i].style.setProperty('--cover', cover.toFixed(3));
+  }
+}
+document.querySelectorAll<HTMLElement>('[data-beat-open]').forEach((b) => b.addEventListener('click', () => openSheet(beatSheet(Number(b.dataset.beatOpen)))));
+
+// reviews: a swipeable 3D rail
+const qrail = document.querySelector<HTMLElement>('.qrail');
+function syncQrail() {
+  if (!qrail) return;
+  const c = qrail.scrollLeft + qrail.clientWidth / 2;
+  qrail.querySelectorAll<HTMLElement>('.quote').forEach((q) => {
+    const d = (q.offsetLeft + q.offsetWidth / 2 - c) / q.offsetWidth;
+    const ad = Math.min(1.5, Math.abs(d));
+    q.style.transform = `perspective(900px) rotateY(${(-d * 28).toFixed(2)}deg) scale(${(1 - ad * 0.1).toFixed(3)})`;
+    q.style.opacity = (1 - ad * 0.35).toFixed(3);
+  });
+}
+qrail?.addEventListener('scroll', syncQrail, { passive: true });
+syncQrail();
+
+// tilt the phone to look around the desert (Android directly; iOS asks once on first tap)
+if (isMobile) {
+  const onTilt = (e: DeviceOrientationEvent) => {
+    if (e.gamma == null || e.beta == null) return;
+    world?.setPointer(((clamp(e.gamma / 30, -1, 1) + 1) / 2) * innerWidth, ((clamp((e.beta - 45) / 30, -1, 1) + 1) / 2) * innerHeight);
+  };
+  const DOE = window.DeviceOrientationEvent as unknown as { requestPermission?: () => Promise<string> } | undefined;
+  if (DOE?.requestPermission) {
+    window.addEventListener('touchend', () => { DOE.requestPermission!().then((r) => { if (r === 'granted') window.addEventListener('deviceorientation', onTilt); }).catch(() => {}); }, { once: true });
+  } else window.addEventListener('deviceorientation', onTilt);
+}
+
+const dock = document.querySelector<HTMLElement>('.dock');
+const dockNo = document.querySelector<HTMLElement>('.dock-no');
+const dockTitle = document.querySelector<HTMLElement>('.dock-title') as HTMLElement;
+dock?.addEventListener('click', () => (document.querySelector('.menu-btn') as HTMLElement).click());
 
 /* ======================= per-frame UI ======================= */
 
@@ -261,9 +334,12 @@ function syncUI(c: number, u: number[], y: number) {
     lastCh = ch;
     hudNo.textContent = CHAPTERS[ch].no;
     hudTitle.textContent = CHAPTERS[ch].title;
+    if (dockNo) { dockNo.textContent = CHAPTERS[ch].no; dockTitle.textContent = CHAPTERS[ch].title; }
   }
   const max = document.documentElement.scrollHeight - vh;
   prog.style.transform = `scaleX(${max > 0 ? clamp(y / max) : 0})`;
+  if (dock) dock.style.setProperty('--p', (max > 0 ? clamp(y / max) : 0).toFixed(4));
+  syncDeck();
 
   if (storyBeats.length) {
     const b = Math.min(STORY.length - 1, Math.floor(u[1] * STORY.length * 0.999));
