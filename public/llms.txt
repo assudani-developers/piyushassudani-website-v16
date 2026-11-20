@@ -1,0 +1,118 @@
+# Piyush Assudani
+
+> Piyush Assudani (Piyush Chandra Prakash Assudani) is a self-taught full-stack developer from Balotra, Rajasthan and the founder of Assudani Group, with 50+ websites live and 5+ products of his own.
+
+Full name: Piyush Chandra Prakash Assudani. Based in Balotra, Rajasthan, India. Studying Class 12 (PCM). Founder of Assudani Group (Jodhpur & Balotra). Building since 2023, self-taught.
+
+## Key facts
+- Websites live: 50+
+- Products of his own: 5+
+- Contact: piyushassudani96@gmail.com, WhatsApp +91 94138 79444
+- Profiles: [GitHub](https://github.com/PiyushASSUDANI123), [LinkedIn](https://www.linkedin.com/in/piyush-assudani96/), [Instagram](https://www.instagram.com/piyush_assudani96/), [Assudani Group](https://assudanigroup.online)
+
+## Story
+### Childhood: Asthma kept me indoors. Devices kept me busy.
+I had asthma as a kid, so most of my time went to whatever device was in the house. I used new gadgets, opened them up to see how they worked, and tried to make something new out of them.
+
+I also knew early that one day I wanted to build a business of my own.
+
+### The first client: A portrait painter, and ₹500.
+I taught myself to build a very basic website from free online resources, put it live, and showed it to everyone I met. Then a portrait painter asked me to build his site. He would pay the third-party costs, and give me a portrait as a gift.
+
+He loved the site. Then the ₹500 took a long time to arrive, and I didn’t know if it ever would. It did. I bought the cheapest domain I could find (about ₹350) and some hosting, and finished at a loss. But I had learned that people pay for this.
+
+### Door to door: I walked into every shop in Balotra.
+Balotra didn’t have a culture of business websites, and most people didn’t yet see why they needed one. I went door to door anyway. There isn’t a centre or a shop that looked like it could afford a site where I didn’t walk in and pitch.
+
+I sold five or six websites and made about ₹10,000. When I finally told my parents, they were shocked. They didn’t know anyone paid for this. They didn’t fully believe it either, but they never stood in my way. After that, referrals kept coming.
+
+### The Play Store: “You won’t be able to build the app.”
+When I showed my IP teacher what I’d made, he set me a challenge: a real software project, and he said I wouldn’t manage the app part. That hurt my ego, so I started researching. Native Android meant Kotlin or Java, so I learned WebView, which wraps a web app inside an Android app.
+
+I had no international card for the developer account, so I bought it on my brother’s card and verified it in my mother’s name. Atteni, my first app, was rejected 4–5 times. Generating one PDF inside a WebView took seven days of trial and error before a blob download finally worked.
+
+Then Google changed its rules: every new account now needed 12 testers for 14 days. I was stuck again, until a friend introduced me to someone who ran a hardware shop in Balotra and had an old developer console in his name. He gave it to me, and that’s how Atteni and PyPocket went live.
+
+### Today: Still in school. Still building.
+I started in 2023 with simple HTML pages hosted on GitHub, because I didn’t know where else to host. Today I study PCM in Class 12, and I run Assudani Group with more than 50 websites live and 5+ products of my own.
+
+No guide and no shortcuts. Just one more thing figured out every day.
+
+## Apps
+- **Atteni** (Live on Google Play): School transport still runs on paper registers that get lost and tell parents nothing. Atteni replaces them with real-time automation: alerts for parents, digital control for the school, and a faster way for bus staff to mark boarding. It is built for Tier-2 and Tier-3 cities. Atteni was also my first app on the Play Store. It began as a WebView app on local storage, was rejected 4–5 times, and has grown into the Atteni ecosystem. Links: [Google Play](https://play.google.com/store/apps/details?id=com.piyush.atteni), [atteni.online](https://atteni.online)
+- **PyPocket** (Live on Google Play + web): PyPocket lets you write and run real Python without a PC. On the web it is a free compiler and IDE powered by WebAssembly (Pyodide), with no install and no account. It supports matplotlib, pandas and numpy, and includes a variable inspector and multi-file projects. The Android app teaches Python as a structured learning path (Foundations, key concepts, OOP, async, and future tracks for FastAPI, DSA and AI) with summary notes, practice MCQs and progress for every module. Links: [Google Play](https://play.google.com/store/apps/details?id=com.piyush.pypocket1), [pypocket.xyz](https://pypocket.xyz)
+- **Perfect Bandhan** (Flagship · Web + App): A private, premium matchmaking platform made only for the Sindhi Samaj. Every profile is checked by an admin and verified with WhatsApp OTP, so there are no fake profiles. The app has no ads, gives members full control over who sees their photos and income details, and charges a one-time registration fee instead of a subscription. Links: [perfectbandhan.in](https://perfectbandhan.in)
+- **Upcoming soon** (Upcoming soon): More apps are in the works under Assudani Group. They will show up here first, once they’re live.
+
+## Tools
+- Android apps: Kotlin, Flutter, Android Studio
+- Websites: React.js, Next.js, JavaScript, Tailwind CSS
+- Backend & data: Node.js, Firebase, Python
+- Design & the rest: Figma, Git & GitHub, Kali Linux, Arduino C++
+
+## Client websites (selection)
+- [MRK Engineers](https://mrkengineers.site): Civil engineering & surveying. Civil engineering consultants in Balotra, specialising in DGPS surveying, GIS mapping, township planning and architectural consultation. The site presents their engineering services, masterplans, process and site gallery, and leads to a quote request.
+- [Novia World](https://noviaworld.com): D2C kids’ clothing. Storefront for Novia’s Smart Learning Dress, an interactive cotton T-shirt and pyjama set that kids colour in, wash and colour again. The site is built to sell: an offer bar, product highlights, parent trust signals, exchange policy and FAQs.
+- [Aryan Steel](https://aryansteel.online): Industrial metals supplier. Importer, stockist and supplier of ferrous and non-ferrous metals in Delhi: stainless steel, carbon steel tubes, alloy steel and industrial raw materials. The site has a visual catalogue, material grades, founders and a direct enquiry form.
+- [Surya Steel](https://suryasteel.online): Stainless steel & alloys. B2B supplier and stockist of stainless steel, alloy steel, seamless pipes, tubes, fittings and sheets. The site is heavy on the industrial look and walks buyers through a complete product range.
+- [Prowear](https://prowear.in): Custom sock manufacturing. A sock manufacturer in Balotra (est. 1995) making India-made custom socks in bulk for schools, corporate brands and retail chains. The site sells low minimum orders, fast delivery and fully customisable designs.
+- [Rainbow E Smart School](https://rainbowesmartschoolbalotra.site): School website. An English and Hindi medium school in Balotra. The site covers leadership, academics, facilities, parent reviews and gallery, with an admissions banner for the 2026–27 session.
+- [REDS School, Khattu](https://redsschoolkhattu.site): Hindi-first school website. A primary school in Ramasar Khattu, Balotra, with a website built Hindi-first. It has a notice board, fee information, results, toppers, alumni, an admission form and an English toggle.
+- [Debabrata Dey](https://debabratadey.site): Artist portfolio. Portfolio of a fine artist whose work moves between oil painting and digital design. It covers selected curations, awards, press and works available to collect.
+- [Amit Vaishnav](https://amitvaishnav.site): Video editor portfolio. Portfolio for a freelance video editor focused on cinematic storytelling, speed ramping and colour grading. It includes selected works, rates and a booking call-to-action.
+- [Anoop Kumar](https://anoopkumar.site): Educator profile. Profile of a mathematics PGT and education administrator with 14+ years of experience. It covers his career timeline, credentials, a visual curriculum and batches for students to join.
+- [Rakesh Deora](https://rakeshdeora.com): Digital strategy & AI educator. Personal brand for a computer science and AI educator who also works in social media management and digital marketing. It shows expertise, selected work, plans and client voices.
+- [NEXORA Balotra](https://nexorabalotra.com): Coaching institute. An in-person learning space in Balotra that teaches financial wisdom, real-estate knowledge and relationship skills face to face. The site explains the courses, who they’re for and how to join.
+- [Evora](https://evora-website-8xi.pages.dev/): Café & snacks. A café-style snack and beverage stall in Balotra. The site shows the menu with prices, its best sellers, the story and where to find it, plus a festive offer pop-up.
+- [EnVision Foundation](https://envision-ngo-website.pages.dev/): Youth-led NGO. A youth-led non-profit that educates and empowers underprivileged children. The site presents its initiatives, real stories, volunteer and donor sections, and a donation flow.
+- [Infrabyte Technology](https://infrabytetech.com): Software agency. Website for a software agency offering custom software, web applications, cybersecurity and digital marketing, built around its tagline “We Listen. We Build. We Deliver.”
+- [Bishnoi Digital](https://bishnoidigital.online): Creative agency. A creative agency founded by Rahul Bishnoi, offering website development, video editing, SEO and digital marketing. The site has a services grid, work showcase, founder story and process.
+- [Abhishek Tiwari](https://abhishekk.site): Student portfolio. A personal site for a student learning to trade and code. It has a trading dashboard section, coding journey, photo album and contact.
+- [Assudani Group](https://assudanigroup.online): My own company. The site of my own software and design company, based in Jodhpur and Balotra. It covers our services, our own products (Atteni, PyPocket and Perfect Bandhan), live client work and how a project runs.
+
+## All live sites
+- [MRK Engineers](https://mrkengineers.site)
+- [Maya Soft Computer Centre](https://mayasoftcomputercentre.site)
+- [Debabrata Dey](https://debabratadey.site)
+- [Amit Vaishnav](https://amitvaishnav.site)
+- [Anoop Kumar](https://anoopkumar.site)
+- [Abhishek Tiwari](https://abhishekk.site)
+- [Rakesh Deora](https://rakeshdeora.com)
+- [Novia World](https://noviaworld.com)
+- [REDS School, Khattu](https://redsschoolkhattu.site)
+- [Rainbow E Smart School](https://rainbowesmartschoolbalotra.site)
+- [Prowear](https://prowear.in)
+- [Aryan Steel](https://aryansteel.online)
+- [Assudani Group](https://assudanigroup.online)
+- [Surya Steel](https://suryasteel.online)
+- [Bishnoi Digital](https://bishnoidigital.online)
+- [NEXORA Balotra](https://nexorabalotra.com)
+- [Infrabyte Technology](https://infrabytetech.com)
+- [EnVision Foundation](https://envision-ngo-website.pages.dev)
+- [Evora](https://evora-website-8xi.pages.dev)
+- [Perfect Bandhan](https://perfectbandhan.in)
+- [Atteni](https://atteni.online)
+- [PyPocket](https://pypocket.xyz)
+
+## Reviews
+- "Piyush is a visionary developer. He understood exactly what we needed." — MRK Engineers (5/5)
+- "The marketing campaign scaled our brand visibility by 300% in a month." — Novia World (5/5)
+- "Incredible turnaround time and flawless code architecture." — Balotra Computer (5/5)
+- "Assudani Group completely transformed our website's presence." — Vikram Tech (5/5)
+- "Loved the UI/UX design they provided for our e-commerce platform." — Neha Creations (5/5)
+- "Amazing app development service. Highly recommended!" — Rahul S. (5/5)
+- "Excellent support even post-launch. Highly dependable team." — Maya Soft (4/5)
+- "Best tech solutions in Balotra! Fast, reliable, and professional." — Aman D. (4/5)
+
+## Pages
+- https://piyushassudani.in/about/
+- https://piyushassudani.in/work/
+- https://piyushassudani.in/apps/
+- https://piyushassudani.in/apps/atteni/
+- https://piyushassudani.in/apps/pypocket/
+- https://piyushassudani.in/apps/perfect-bandhan/
+- https://piyushassudani.in/contact/
+
+## Optional
+- [Privacy policy](https://piyushassudani.in/privacy.html)
+- [Terms of use](https://piyushassudani.in/terms.html)
